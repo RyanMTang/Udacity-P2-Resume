@@ -1,6 +1,6 @@
 ## Project Overview
 
-This goal of this project was to build an interactive resume that uses Javascript and jQuery to iterate through objects in order
+This goal of this project was to build an interactive resume that uses Javascript and the help of jQuery to iterate through objects in order
 to make information appear on the page. The resume also features an interactive map using the Google Maps API.
 
 ### Running the project
