@@ -51,8 +51,24 @@ var projects = {
 			"dates": "September, 2012 to December, 2012",
 			"description": "Managed a bicycle production company using Mikes Bikes simulation software",
 		}
-	]
+	],
+
+	
 }
+projects.display = function() {
+		for (project in projects.projects) {
+
+		$("#projects").append(HTMLprojectStart);
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(formattedTitle);
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(formattedDates);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedDescription);
+		}
+	}
+
+projects.display();
 
 var bio = {
 	"name": "Ryan Tang", 
@@ -89,7 +105,7 @@ var education = {
 	}]
 }
 
-function displayEducation() {
+education.display = function() {
 	for (school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 		
@@ -119,12 +135,12 @@ function displayEducation() {
 	}
 }
 
-displayEducation();
+education.display();
 
 
 
 	
-function displayBio() {
+bio.display = function() {
 	$("#header").append(HTMLskillsStart);
 	for (skill in bio.skills) {
 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
@@ -146,9 +162,9 @@ function displayBio() {
 	$("#header").prepend(formattedbioPic);
 }
 
-displayBio();
+bio.display();
 
-function displayWork() {
+work.display = function() {
 	for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		
@@ -165,7 +181,32 @@ function displayWork() {
 	}
 }
 
-displayWork();
+work.display();
+
+header.display = function() {
+var formattedName = HTMLheaderName.replace("%data%", "Ryan Tang");
+var formattedRole = HTMLheaderRole.replace("%data%", "Web Developer");
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+}
+
+header.display();
+
+footerContacts.display = function() {
+
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	$("#footerContacts").prepend(formattedLocation);
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	$("#footerContacts").prepend(formattedTwitter);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#footerContacts").prepend(formattedGithub);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#footerContacts").prepend(formattedEmail);
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#footerContacts").prepend(formattedMobile);
+}
+
+footerContacts.display();
 
 $(document).click(function(loc) {
 	var x = loc.pageX;
@@ -187,43 +228,6 @@ function inName(name) {
 
 $("#main").append(internationalizeButton);
 
-projects.display = function() {
-	for (project in projects.projects) {
 
-	$("#projects").append(HTMLprojectStart);
-	var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-	$(".project-entry:last").append(formattedTitle);
-	var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-	$(".project-entry:last").append(formattedDates);
-	var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-	$(".project-entry:last").append(formattedDescription);
-	}
-}
-
-projects.display();
 
 $("#mapDiv").append(googleMap);
-function displayHeader() {
-var formattedName = HTMLheaderName.replace("%data%", "Ryan Tang");
-var formattedRole = HTMLheaderRole.replace("%data%", "Web Developer");
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-}
-
-displayHeader();
-
-function footerContacts() {
-
-	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-	$("#footerContacts").prepend(formattedLocation);
-	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-	$("#footerContacts").prepend(formattedTwitter);
-	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-	$("#footerContacts").prepend(formattedGithub);
-	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-	$("#footerContacts").prepend(formattedEmail);
-	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$("#footerContacts").prepend(formattedMobile);
-}
-
-footerContacts();
