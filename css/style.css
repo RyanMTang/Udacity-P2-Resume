@@ -67,7 +67,6 @@ h5 {
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: left;
 }
 
 .location-text {
@@ -137,7 +136,6 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
   padding: 10px;
 }
 
@@ -210,6 +208,14 @@ span {
   #skills-h3,
   .biopic {
     display: block;
+  }
+
+  #skills {
+    display: block;
+  }
+
+  #topContacts {
+    padding-left: 0;
   }
 
 }
